@@ -1,11 +1,18 @@
-const Select = ({ options, id, onChange }) => {
+const Select = ({ options, id, dispatch, value }) => {
 	return (
 		<select
 			id={id}
 			name={id}
+			value={value}
 			className={`rounded-sm py-2 px-1 cursor-pointer bg-[#333333] w-3xl`}
 			required
-			onChange={onChange}>
+			onChange={(e) =>
+				dispatch({
+					type: "UPDATE_FIELD",
+					field: e.target.name,
+					value: e.target.value,
+				})
+			}>
 			{options.map((option, index) => (
 				<option key={index} value={option}>
 					{option}

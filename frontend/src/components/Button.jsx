@@ -1,7 +1,7 @@
 const Button = () => {
 	return (
 		<button
-			className="font-bold text-center bg-[#382798] w-full py-1 rounded-sm cursor-pointer"
+			className="font-bold text-center bg-[#382798] w-3xl my-4 py-1 rounded-sm cursor-pointer"
 			type="submit">
 			Add
 		</button>

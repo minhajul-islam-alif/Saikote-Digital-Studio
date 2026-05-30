@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 
 function App() {
 	return (
-		<div className="flex flex-col justify-center items-center pb-10">
+		<div className="flex flex-col justify-center items-center">
 			<header className="py-10">
 				<h1 className="font-italiana text-7xl text-white">SAIKOTE DIGITAL STUDIO</h1>
 			</header>

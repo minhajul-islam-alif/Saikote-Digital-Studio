@@ -1,5 +1,4 @@
-const photoSizes = [
-	"Select One",
+const normalPhotoSizes = [
 	"Stamp",
 	"Passport",
 	"DV",
@@ -12,68 +11,70 @@ const photoSizes = [
 	"10L",
 ];
 
-export const inputs = [
+const labPhotoSizes = ["3R", "4R", "5R", "6R", "8R", "10R", "10L"];
+
+export const normalInputs = [
 	{
 		id: "snapType",
 		label: "Snap Type",
-		options: ["Select One", "Snapshot", "Scan"],
+		options: ["Snapshot", "Scan"],
 		type: "select",
-		isLab: false,
 	},
 	{
 		id: "photoNo",
 		label: "Photo No.",
 		placeholder: "DC/",
 		type: "text",
-		isLab: false,
 	},
 	{
-		id: "photoSizePrint",
+		id: "photoSize",
 		label: "Photo Size (Print)",
-		options: photoSizes,
+		options: normalPhotoSizes,
 		type: "select",
-		isLab: false,
 	},
 	{
 		id: "quantity",
 		label: "Quantity",
-		placeholder: 0,
+		placeholder: 4,
 		type: "number",
-		isLab: false,
 	},
 	{
 		id: "amount",
 		label: "Amount",
-		placeholder: 0,
+		placeholder: 50,
 		type: "number",
-		isLab: false,
 	},
+	{
+		id: "printMethod",
+		label: "Print Method",
+		options: ["Normal", "Lab"],
+		type: "select",
+	},
+];
+
+export const labInputs = [
 	{
 		id: "printType",
 		label: "Print Type",
-		options: ["Select One", "Normal", "Lab"],
+		options: ["Glossy", "Matte"],
 		type: "select",
-		isLab: false,
 	},
 	{
 		id: "deliveryType",
 		label: "Delivery Type",
-		options: ["Select One", "Non-Urgent", "Urgent"],
+		options: ["Non-Urgent", "Urgent"],
 		type: "select",
-		isLab: true,
 	},
 	{
-		id: "photoSizeLab",
+		id: "labPhotoSize",
 		label: "Photo Size (Lab)",
-		options: photoSizes,
+		options: labPhotoSizes,
 		type: "select",
-		isLab: true,
 	},
 	{
 		id: "labQuantity",
 		label: "Lab Quantity",
-		placeholder: 0,
+		placeholder: 1,
 		type: "number",
-		isLab: true,
 	},
 ];
