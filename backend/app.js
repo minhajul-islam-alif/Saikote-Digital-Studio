@@ -13,11 +13,16 @@ dotenv.config();
 app.use(express.json());
 app.use(cors());
 
-app.get("/", getTotalAmount);
+app.get("/", (req, res) => {
+	res.send("Welcome to Saikote Digital Studio");
+});
+app.get("/amount", getTotalAmount);
 
 app.post("/", savePhotoDetails, saveTotalAmount);
 
-app.listen(process.env.PORT, () => {
-	console.log(`App running on ${process.env.APP_URL}`);
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+	console.log(`App running on: http://localhost:${PORT}`);
 	connectDatabase();
 });

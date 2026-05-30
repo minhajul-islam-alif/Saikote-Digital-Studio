@@ -11,49 +11,54 @@ const photoSchema = mongoose.Schema(
 		photoNo: {
 			type: String,
 			required: function () {
-				return this.snapType === "Snapshot";
+				return this.snapType !== "Scan";
 			},
 		},
-		photoSizePrint: {
+		photoSize: {
 			type: String,
 			required: true,
 		},
 		quantity: {
-			type: String,
+			type: Number,
 			required: true,
 		},
 		amount: {
 			type: Number,
 			required: true,
 		},
-		printType: {
+		printMethod: {
 			type: String,
 			enum: ["Normal", "Lab"],
 			default: "Normal",
 			required: true,
 		},
-		deliveryType: {
+		printType: {
 			type: String,
-			default: "Non-Urgent",
+			enum: ["Glossy", "Matte"],
+			default: "Glossy",
 			required: function () {
-				return this.printType === "Lab";
+				return this.printMethod === "Lab";
 			},
 		},
-		photoSizeLab: {
+		deliveryType: {
+			type: String,
+			enum: ["Non-Urgent", "Urgent"],
+			default: "Non-Urgent",
+			required: function () {
+				return this.printMethod === "Lab";
+			},
+		},
+		labPhotoSize: {
 			type: String,
 			required: function () {
-				return this.printType === "Lab";
+				return this.printMethod === "Lab";
 			},
 		},
 		labQuantity: {
 			type: Number,
 			required: function () {
-				return this.printType === "Lab";
+				return this.printMethod === "Lab";
 			},
-		},
-		date: {
-			type: Date,
-			default: Date.now(),
 		},
 	},
 	{ timestamps: true },

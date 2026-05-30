@@ -21,6 +21,7 @@ export const saveTotalAmount = async (req, res, next) => {
 
 		return res.status(200).json({
 			success: true,
+			message: "Photo details and amount saved successfully.",
 			data: { photoNo: req.body.photoNo || "Scan", totalAmount: updated.totalAmount },
 		});
 	} catch (err) {
