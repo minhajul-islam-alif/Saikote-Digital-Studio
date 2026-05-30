@@ -13,6 +13,7 @@ const Select = ({ options, id, dispatch, value }) => {
 					value: e.target.value,
 				})
 			}>
+			<option value="">Select One</option>
 			{options.map((option, index) => (
 				<option key={index} value={option}>
 					{option}

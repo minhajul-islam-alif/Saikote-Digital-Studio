@@ -2,7 +2,7 @@ import Amount from "../models/amount.model.js";
 
 export const saveTotalAmount = async (req, res, next) => {
 	const { amount } = req.body;
-	// Validate amount
+
 	const parsed = Number(amount);
 	if (!Number.isFinite(parsed) || parsed <= 0) {
 		return res
@@ -11,8 +11,6 @@ export const saveTotalAmount = async (req, res, next) => {
 	}
 
 	try {
-		// Atomically increment the stored totalAmount. If no document exists, create one (upsert).
-		// Using an empty filter to keep a single document that holds the running total.
 		const updated = await Amount.findOneAndUpdate(
 			{},
 			{ $inc: { totalAmount: parsed } },

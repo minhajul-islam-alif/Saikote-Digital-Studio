@@ -16,15 +16,15 @@ const updateState = (state, action) => {
 };
 
 const initialState = {
-	snapType: "Snapshot",
+	snapType: "",
 	photoNo: "",
-	photoSize: "Stamp",
+	photoSize: "",
 	quantity: 4,
 	amount: 50,
-	printMethod: "Normal",
-	printType: "Glossy",
-	deliveryType: "Non-Urgent",
-	labPhotoSize: "3R",
+	printMethod: "",
+	printType: "",
+	deliveryType: "",
+	labPhotoSize: "",
 	labQuantity: 1,
 };
 
@@ -67,7 +67,12 @@ const Form = () => {
 						{input.label}
 					</label>
 					{input.type === "select" ? (
-						<Select options={input.options} id={input.id} dispatch={dispatch} value={state[input.id]} />
+						<Select
+							options={input.options}
+							id={input.id}
+							dispatch={dispatch}
+							value={state[input.id]}
+						/>
 					) : (
 						<Input
 							id={input.id}
@@ -88,7 +93,12 @@ const Form = () => {
 							{input.label}
 						</label>
 						{input.type === "select" ? (
-							<Select options={input.options} id={input.id} dispatch={dispatch} value={state[input.id]} />
+							<Select
+								options={input.options}
+								id={input.id}
+								dispatch={dispatch}
+								value={state[input.id]}
+							/>
 						) : (
 							<Input
 								id={input.id}
